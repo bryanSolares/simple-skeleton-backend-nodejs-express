@@ -11,15 +11,25 @@ const __dirname = path.dirname(__filename)
 const compat = new FlatCompat({ baseDirectory: __dirname, recommendedConfig: pluginJs.configs.recommended })
 
 export default [
-  {
-    languageOptions: { globals: globals.browser },
-    rules: {
-      'no-unused-vars': 'error',
-      'no-undef': 'error',
-      'no-await-in-loop': 'error',
-      quotes: ['warn', 'single'],
-      'no-extra-semi': ['warn']
-    }
-  },
-  ...compat.extends('standard')
+    {
+        languageOptions: { globals: globals.browser },
+        rules: {
+            'no-unused-vars': 'error',
+            'no-undef': 'error',
+            'no-await-in-loop': 'error',
+            quotes: ['warn', 'single'],
+            'no-extra-semi': ['warn']
+        },
+        env: {
+            'jest/globals': true,
+            browser: true,
+            es2021: true
+        },
+        plugins: ['jest'],
+        parserOptions: {
+            ecmaVersion: 'latest',
+            sourceType: 'module'
+        }
+    },
+    ...compat.extends('standard')
 ]
