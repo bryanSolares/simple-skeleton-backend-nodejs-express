@@ -5,13 +5,13 @@ import 'dotenv/config'
 
 import routes from './routes/index.js'
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT ?? 3000
 export const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
-app.use(morgan('short'))
+app.use(morgan('dev'))
 
 app.use(routes)
 

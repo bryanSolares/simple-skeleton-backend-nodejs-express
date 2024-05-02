@@ -7,6 +7,6 @@ describe('Test firt endpoint', () => {
         expect(response.header['content-type']).toMatch('json')
         expect(response.status).toEqual(200)
         expect(response.body).toHaveProperty('message')
-        expect(response.body.message).toEqual(':smile: everything ok')
+        expect(response.body.message).toEqual('😃 everything works ✅')
     })
 })
